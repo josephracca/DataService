@@ -16,7 +16,7 @@ export class MaincontentComponent implements OnInit {
   }
   
   //this will call the function in the data service to fire
-  passIndex(value){
+  passIndex(value): void{
     this.dService.RemoveValue(value);
   }
 

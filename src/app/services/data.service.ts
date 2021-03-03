@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Todo } from '../interfaces/todo';
 
 //=============LECTURE NOTES=============
 
@@ -11,22 +12,38 @@ import { Injectable } from '@angular/core';
 })
 
 export class DataService {
-//make an array for the moment
-// ideally we would make this private so it's not accessible directly from another component
-// we don't want anyone to access or change this data
-// preference to have interactions with this data
+  //make an array for the moment
+  // ideally we would make this private so it's not accessible directly from another component
+  // we don't want anyone to access or change this data
+  // preference to have interactions with this data
 
   private valueInDataService = ["have fun whilst coding", "evaluate project progress", "work on brevity of code"];
+
+  private typedValueInDataService: Todo[] = [];
 
   private valueInDataServiceArchive = ["have fun whilst coding", "evaluate project progress", "work on brevity of code"];
 
   constructor() { }
 
-  GetValue(): string[]{
+  TypedGetValue(): Todo {
+    const value: Todo = {
+      item: "",
+      category:"",
+      isToggled:false
+    };
+    return value;
+  }
+
+  TypedAddValue(value: Todo): void{
+    this.typedValueInDataService.push(value)
+    console.log(this.typedValueInDataService);
+  }
+
+  GetValue(): string[] {
     return this.valueInDataService;
   }
 
-  AddValue(value: string): void{
+  AddValue(value: string): void {
     this.valueInDataService.push(value);
   }
   RemoveValue(value: number): void {
@@ -37,7 +54,7 @@ export class DataService {
     // this.valueInDataService.splice(value, 1)
     // console.log(this.valueInDataService);
 
-    let spliceMe = () => { this.valueInDataService.splice(value, 1)}
+    let spliceMe = () => { this.valueInDataService.splice(value, 1) }
 
     setTimeout(spliceMe, 1000)
   }
