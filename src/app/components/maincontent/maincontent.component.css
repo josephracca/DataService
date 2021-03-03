@@ -1,0 +1,27 @@
+.slogan {
+    font-weight: 200;
+}
+
+.task {
+    font-size: 30px;
+    font-weight: 200;
+}
+
+.complete {
+    text-decoration: line-through white;
+}
+
+
+label:active, label:hover {
+    text-decoration: line-through turquoise 2px;
+}
+
+input[type=checkbox] {
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+    vertical-align: center;
+    position: relative;
+    top: -1px;
+    *overflow: hidden;
+}
